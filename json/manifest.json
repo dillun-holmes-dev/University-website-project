@@ -1,0 +1,17 @@
+{
+    "short_name": "CTU-Buddy",
+    "name": "CTU Buddy Education Website",
+    "icons": [
+      {
+        "src": "/img/webapp.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "id": "/?source=pwa",
+    "start_url": "/",
+    "background_color": "#FF4500",
+    "display": "fullscreen",
+    "scope": "/",
+    "theme_color": "#FF4500"
+}

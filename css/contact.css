@@ -1,0 +1,49 @@
+
+input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  resize: vertical 
+}
+input[type=submit] {
+  background-color: #041E42;
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+.container {
+  border-radius: 5px;
+  background: linear-gradient(135deg,#FF4500, #041E42 );
+  padding: 20px;
+}
+
+.email {
+  background-image: url('../img/email.png');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+}
+
+.options{
+  background-color: rgba(255, 255, 255, 0.500);
+  color: white;
+}
+
+.options::placeholder {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  position: relative;
+  left: 10px;
+}

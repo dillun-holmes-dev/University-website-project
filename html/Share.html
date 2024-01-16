@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CTU-Buddy</title>
+  <link rel="icon" type="image/x-icon" href="../img/fav.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/share.css">
+  <script src="../js/scrollreveal.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="../img/CTU BUDDY.png" alt="CTU_BUDDY_LOGO" align="left" width="100" height="100">
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a href="Time.html">Timetable</a>
+      <a href="Discussion.html">Discussion</a>
+      <a href="Share.html">Shared Resources</a>
+      <a href="About.html">About Us</a>
+      <a href="Contact.php">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <label for="file">File</label>
+      <input id="file" name="file" type="file" />
+      <button type="submit">Upload</button>
+  </form>
+
+  <h1>Resources Download Page</h1>
+  <ul id="fileList">
+      <!-- This will be populated with uploaded files using JavaScript -->
+  </ul>
+    <img src="../img/download.png" class="download">
+  </main>
+
+  <script>
+  const srtop = ScrollReveal({
+  origin: 'top',
+  distance: '80px',
+  duration: 2000,
+  reset: false
+  });
+  srtop.reveal('main');
+
+  document.getElementById('uploadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var formData = new FormData(this);
+
+            fetch('../php/upload.php', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Refresh the list of uploaded files
+                    updateFileList();
+                    alert('File upload successful.');
+                } else {
+                    alert('File upload failed.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while uploading the file.');
+            });
+        });
+
+        function updateFileList() {
+            fetch('../php/list_files.php')
+            .then(response => response.json())
+            .then(data => {
+                var fileList = document.getElementById('fileList');
+                fileList.innerHTML = '';
+
+                data.files.forEach(function (file) {
+                    var listItem = document.createElement('li');
+                    listItem.classList.add('file-list-item');
+                    var downloadLink = document.createElement('a');
+                    downloadLink.setAttribute('href', '../uploads/' + file);
+                    downloadLink.setAttribute('download', file);
+                    downloadLink.textContent = file;
+                    listItem.appendChild(downloadLink);
+                    fileList.appendChild(listItem);
+                });
+            });
+        }
+
+        // Initial update of the file list
+        updateFileList();
+
+  </script>
+
+  <footer>
+    <p>Contact Number : 041 098 7865</p>
+    <p>Email : info@ctuniversity.co.za</p>
+    <br>
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a href="Time.html">Timetable</a>
+      <a href="Discussion.html">Discussion</a>
+      <a href="Share.html">Shared Resources</a>
+      <a href="About.html">About Us</a>
+      <a href="Contact.php">Contact Us</a>
+    </div>
+    <p>Created By Dillun Holmes; Salomon Pretorius; Kayleigh Louwrens</p>
+    <p>SDK &copy; 2023</p>
+  </footer>
+</html>

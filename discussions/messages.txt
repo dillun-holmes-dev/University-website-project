@@ -1,0 +1,14 @@
+------------------------------------------------------------
+Server Online
+CPU: i7-7500
+RAM: 8GB DDR4
+OS: Windows 11 Pro for Workstations (OS Build 22000.2416)
+
+Apache24 running properly.
+hMailServer running properly.
+
+HTML, CSS, JS, PHP, JSON detected.
+-------------------------------------------------------------
+
+ADMIN: Hi
+

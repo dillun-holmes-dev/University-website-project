@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CTU-Buddy</title>
+  <link rel="icon" type="image/x-icon" href="../img/fav.ico">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="manifest" href="json/manifest.json">
+  <script src="js/scrollreveal.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="img/CTU BUDDY.png" alt="CTU_BUDDY_LOGO" align="left" width="100" height="100">
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="html/Time.html">Timetable</a>
+      <a href="html/Discussion.html">Discussion</a>
+      <a href="html/Share.html">Shared Resources</a>
+      <a href="html/About.html">About Us</a>
+      <a href="html/Contact.php">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <img src="img/Welcome.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="img/add-1.png" style="width:100%">
+      </div>
+      <div class="mySlides fade">
+        <img src="img/add-2.png" style="width:100%">
+      </div>
+      
+      
+      <br>
+      <!-- The dots/circles -->
+      <div style="text-align:center; display: block; margin-left: auto; margin-right: auto;">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+
+      <center>
+        <div class="features">
+          <h2>Explore Our Campuses</h2>
+        </div>
+      </center>
+
+      <br>
+
+      <div class="feature-card">
+        <img src="img/class-2.jpg" alt="Feature 3">
+        <h3>Courses</h3>
+        <ul>
+          <li>Computer Science (BSc) - Bachelor of Science in Computer Science</li>
+          <li>Electrical Engineering (BEng) - Bachelor of Engineering in Electrical Engineering</li>
+          <li>Mechanical Engineering (MEng) - Master of Engineering in Mechanical Engineering</li>
+          <li>Civil Engineering (Diploma) - Diploma in Civil Engineering</li>
+          <li>Software Engineering (MSc) - Master of Science in Software Engineering</li>
+          <li>Information Technology (BSc) - Bachelor of Science in Information Technology</li>
+          <li>Aerospace Engineering (PhD) - Doctor of Philosophy in Aerospace Engineering</li>
+          <li>Biomedical Engineering (MEng) - Master of Engineering in Biomedical Engineering</li>
+          <li>Environmental Science (BSc) - Bachelor of Science in Environmental Science</li>
+          <li>Data Science and Analytics (Diploma) - Diploma in Data Science and Analytics</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <img src="img/class-1.jpg" alt="Feature 1">
+        <div class="content">
+          <h3>Online classes</h3>
+          <p>Having classes online offers several benefits. Firstly, it provides flexibility, allowing students to access lectures and materials at their convenience. Additionally, online platforms foster global collaboration, connecting learners from diverse backgrounds. Moreover, the digital environment facilitates interactive learning through multimedia resources and virtual simulations. Lastly, it reduces commuting time and expenses, making education more accessible and cost-effective.</p>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="feature-card">
+        <img src="img/pdf.jpg" alt="Feature 2">
+        <h3>Resource Sharing</h3>
+        <p>Resource sharing offers numerous benefits to individuals and communities, creating a positive impact on various aspects. By sharing knowledge and materials, individuals gain exposure to diverse perspectives and collaborate effectively, enhancing their learning experience. It fosters cost efficiency, reducing the need for duplicate purchases and making resources accessible to a wider audience, promoting inclusivity. Moreover, resource sharing contributes to environmental conservation by reducing the use of paper and physical resources, lessening the overall carbon footprint. Additionally, it encourages creativity and innovation while building a sense of community and accelerating progress, leading to a brighter and sustainable future for all.</p>
+      </div>
+
+      <br>
+
+      <div class="feature-card">
+        <img src="img/map.jpg" alt="Feature 4">
+        <div class="campus-locations">
+          <h3>Campus Locations</h3>
+          <ul>
+            <li>Port Elizabeth</li>
+            <li>Johannesburg</li>
+            <li>Cape Town</li>
+            <li>Durban</li>
+            <li>Bloemfontein</li>
+            <li>And our Newest, Online (the Cloud)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact Number : 041 098 7865 </p>
+    <p>Email : info@ctuniversity.co.za</p>
+    <br>
+    <div class="topnav">
+      <a href="index.html">Home</a>
+      <a href="html/Time.html">Timetable</a>
+      <a href="html/Discussion.html">Discussion</a>
+      <a href="html/Share.html">Shared Resources</a>
+      <a href="html/About.html">About Us</a>
+      <a href="html/Contact.php">Contact Us</a>
+    </div>
+    <p>Created By Dillun Holmes; Salomon Pretorius; Kayleigh Louwrens  </p>
+    <p>SDK &copy; 2023</p>
+  </footer>
+
+  
+  <script src="js/Javascript-1.js"></script>
+  <script>
+  const srtop = ScrollReveal({
+  origin: 'top',
+  distance: '80px',
+  duration: 2000,
+  reset: false
+  });
+  srtop.reveal('main');
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('js/service-worker.js');
+  } else {
+    console.log("Service worker is not supported");
+  }
+  </script>
+  
+</body>
+</html>
+
+

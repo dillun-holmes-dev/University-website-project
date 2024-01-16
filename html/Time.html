@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CTU-Buddy</title>
+  <link rel="icon" type="image/x-icon" href="../img/fav.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/time.css">
+  <script src="../js/scrollreveal.min.js"></script>
+</head>
+<body>
+  <header>
+    <img src="../img/CTU BUDDY.png" alt="CTU_BUDDY_LOGO" align="left" width="100" height="100">
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a href="Time.html">Timetable</a>
+      <a href="Discussion.html">Discussion</a>
+      <a href="Share.html">Shared Resources</a>
+      <a href="About.html">About Us</a>
+      <a href="Contact.php">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <h1>Timetable</h1>
+    <br>
+    <h2>Current Time and Date:</h2>
+    <h2><div id="datetime"></div></h2>
+    <div class="table-container">
+    <table cellpadding="15">
+      <tr>
+        
+     
+      </tr>
+      
+          <tr>
+    <th></th>
+    <th scope="col">Monday</th>
+    <th scope="col">Tuesday</th>
+    <th scope="col">Wednesday</th>
+    <th scope="col">Thursday</th>
+    <th scope="col">Friday</th>
+    
+            
+    </tr>
+      
+      <tr> 
+       <th scope="row">Class 1</th>
+        <td>Electrical</td>
+        <td>Electrical</td>
+        <td>Mechanical</td>
+         <td>Electrical</td>
+         <td>Mechanical</td>
+        
+        </tr>
+      
+    <tr>
+      <th scope="row">Class 2</th>
+       <td rowspan="1">Science</td>
+      <td>Science</td>
+      <td>English</td>
+      <td>Design</td>
+      <td>Mechanical</td>
+       
+      </tr>
+      
+      <tr> 
+       <th scope="row">Break</th>
+        <td colspan="10">Break</td>
+        </tr>
+      
+      <tr> 
+       <th scope="row">Class 3</th>
+        <td rowspan="1">Science</td>
+        <td>Mechanical</td>
+        <td>Science</td>
+         <td>Electrical</td>
+         <td>English</td>
+         
+        </tr>
+      
+      <tr> 
+       <th scope="row">Class 4</th>
+        <td rowspan="1">Math</td>
+        <td>Math</td>
+        <td>Math</td>
+         <td>English</td>
+         <td>PLC</td>
+        
+        
+        </tr>
+      
+        <tr> 
+       <th scope="row">Class 5</th>
+        <td rowspan="1">Math</td>
+       
+          <td>G/A</td>
+        <td>Electrical</td>
+         <td>PLC</td>
+         <td>English</td>
+            
+        </tr>
+      
+      <tr> 
+       <th scope="row">Lunch</th>
+        <td colspan="10">Lunch</td>
+        </tr>
+      
+       <tr> 
+       <th scope="row">Class 6</th>
+        <td rowspan="1">English</td>
+        <td>English</td>
+        <td>Computer Literacy</td>
+         <td>PLC</td>
+         <td>Design</td>
+        
+        </tr>
+      
+      <tr> 
+       <th scope="row">End Of Class </th>
+        <td colspan="10">End of Class</td>
+        </tr>
+    
+      
+    </table>
+  </div>
+    <img src="../img/clock.png" class="clock">
+  </main>
+
+  <footer>
+    <p>Contact Number: 041 098 7865 </p>
+    <p>Email: info@ctuniversity.co.za</p>
+    <br>
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a href="Time.html">Timetable</a>
+      <a href="Discussion.html">Discussion</a>
+      <a href="Share.html">Shared Resources</a>
+      <a href="About.html">About Us</a>
+      <a href="Contact.php">Contact Us</a>
+    </div>
+    <p>Created By Dillun Holmes; Salomon Pretorius; Kayleigh Louwrens  </p>
+    <p>SDK &copy; 2023</p>
+  </footer>
+
+  <script>
+ function displayTimeDate() {
+            var currentDate = new Date();
+            var datetimeElement = document.getElementById("datetime");
+
+            var options = {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
+                second: "numeric"
+            };
+
+            datetimeElement.innerHTML = currentDate.toLocaleDateString("en-US", options);
+        }
+
+        // Update the time and date every second
+        setInterval(displayTimeDate, 1000);
+   function addClass() {
+  const className = document.getElementById("class-name").value;
+  const day = document.getElementById("day").value;
+  const timeFrom = document.getElementById("time-from").value;
+  const timeTo = document.getElementById("time-to").value;
+
+  // Parse the time strings to Date objects
+  const startTime = new Date("2000-01-01 " + timeFrom);
+  const endTime = new Date("2000-01-01 " + timeTo);
+
+  // Calculate the time difference in milliseconds
+  const timeDifference = endTime - startTime;
+
+  // Check if the time difference is at least 1 hour (3600 seconds)
+  if (timeDifference >= 3600000) { // 3600 seconds * 1000 milliseconds
+    const table = document.getElementById("timetable");
+    const rows = table.querySelectorAll("tr");
+
+    // Loop through rows to find the correct time slot row
+    for (let i = 1; i < rows.length; i++) {
+      const cells = rows[i].querySelectorAll("td");
+      const currentTime = cells[0].textContent;
+
+      // Check if the current time slot is within the specified range
+      if (currentTime >= timeFrom && currentTime < timeTo) {
+        // Set the class name in the correct day column
+        switch (day) {
+          case "Monday":
+            cells[1].textContent = className;
+            break;
+          case "Tuesday":
+            cells[2].textContent = className;
+            break;
+          case "Wednesday":
+            cells[3].textContent = className;
+            break;
+          case "Thursday":
+            cells[4].textContent = className;
+            break;
+          case "Friday":
+            cells[5].textContent = className;
+            break;
+          case "Saturday":
+            cells[6].textContent = className;
+            break;
+          case "Sunday":
+            cells[7].textContent = className;
+            break;
+        }
+      }
+    }
+  } else {
+    alert("Time slot must be at least 1 hour.");
+  }
+}
+const srtop = ScrollReveal({
+  origin: 'top',
+  distance: '80px',
+  duration: 2000,
+  reset: false
+  });
+  srtop.reveal('main');
+  </script>
+</body>
+</html>

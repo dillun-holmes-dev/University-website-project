@@ -1,0 +1,144 @@
+header h2 {
+  animation: fadeIn 5s ease-in-out;
+}
+
+/* Add animation to the feature cards */
+.feature-card {
+  animation: slideInUp 5s ease-in-out;
+}
+
+/* Define the animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.feature-card img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover img {
+  transform: scale(1.1);
+}
+
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  padding: 160px;
+  text-align: center;
+  color: #070707;
+}
+.hero-section h1 {
+  font-size: 36px;
+  color: #ffffff;
+}
+.hero-section p {
+  font-size: 18px;
+  color: #00fcfc;
+}
+.feature-card img {
+  float: left;
+  width: 370px;
+  height: auto;
+  margin-left: 10mm;
+  margin-right: 10mm;
+}
+.feature-card::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.feature-card .content {
+  margin-left: 10px; 
+}
+.image-container {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.image-container img {
+display: none; 
+}
+.image-container img:first-child {
+display: block; 
+}
+* {box-sizing:border-box}
+
+.slideshow-container {
+max-width: 75%;
+padding: 75x;
+position: relative;
+margin: auto;
+}
+.mySlides {
+display: none;
+}
+.prev, .next {
+cursor: pointer;
+position: absolute;
+top: 50%;
+width: auto;
+margin-top: -22px;
+padding: 16px;
+color: white;
+font-weight: bold;
+font-size: 18px;
+transition: 0.6s ease;
+border-radius: 0 3px 3px 0;
+user-select: none;
+}
+.next {
+right: 0;
+border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+background-color: rgba(0,0,0,0.8);
+}
+.text {
+color: #f2f2f2;
+font-size: 15px;
+padding: 8px 12px;
+position: absolute;
+bottom: 8px;
+width: 100%;
+text-align: center;
+}
+.numbertext {
+color: #f2f2f2;
+font-size: 12px;
+padding: 8px 12px;
+position: absolute;
+top: 0;
+}
+.dot {
+cursor: pointer;
+height: 15px;
+width: 15px;
+margin: 0 2px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+background-color: #717171;
+}
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
+@keyframes fade {
+from {opacity: .4}
+to {opacity: 1}
+}

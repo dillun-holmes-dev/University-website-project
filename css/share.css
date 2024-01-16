@@ -1,0 +1,17 @@
+.download {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.file-list-item a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}

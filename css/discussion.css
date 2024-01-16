@@ -1,0 +1,68 @@
+::-webkit-scrollbar-corner {
+  color: black;
+}
+  
+
+#message-form {
+      max-width: 75%;
+      margin: 20px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #548ad6, #ff8a5e);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+  }
+
+  input[type="text"], textarea {
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      border-radius: 5px;
+  }
+
+  button[type="submit"] {
+      background-color: #548ad6;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      margin: 0 auto;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+  }
+
+  button[type="submit"]:hover {
+      background-color: #ccc;
+  }
+
+  #message-list {
+  max-width:75%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll; /* This property makes the container scrollable vertically */
+  max-height: 300px; /* This sets the maximum height for the container */
+  color: lime;
+}
+
+  /* CSS for the message container */
+  .message-container {
+      margin: 10px 0;
+      overflow: hidden;
+  }
+h1 {
+  text-align: center;
+}

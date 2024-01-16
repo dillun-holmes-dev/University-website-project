@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTU-Buddy</title>
+    <link rel="icon" type="image/x-icon" href="../img/fav.ico">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/discussion.css">
+    <script src="../js/scrollreveal.min.js"></script>
+</head>
+
+<body>
+<header>
+    <img src="../img/CTU BUDDY.png" alt="CTU_BUDDY_LOGO" align="left" width="100" height="100">
+    <div class="topnav">
+        <a href="../index.html">Home</a>
+        <a href="Time.html">Timetable</a>
+        <a href="Discussion.html">Discussion</a>
+        <a href="Share.html">Shared Resources</a>
+        <a href="About.html">About Us</a>
+        <a href="Contact.php">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+    <h1>Discussions</h1>
+    <div id="message-list">
+        <!-- Messages will be displayed here -->
+    </div>
+
+    <form id="message-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="message">Message:</label>
+        <textarea id="message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+  </main>
+
+    <footer>
+    <p>Contact Number : 041 098 7865 </p>
+    <p>Email : info@ctuniversity.co.za</p>
+    <br>
+    <div class="topnav">
+        <a href="../index.html">Home</a>
+        <a href="Time.html">Timetable</a>
+        <a href="Discussion.html">Discussion</a>
+        <a href="Share.html">Shared Resources</a>
+        <a href="About.html">About Us</a>
+        <a href="Contact.php">Contact Us</a>
+    </div>
+    <p>Created By Dillun Holmes; Salomon Pretorius; Kayleigh Louwrens  </p>
+    <p>SDK &copy; 2023</p>
+    </footer>
+    <script>
+  const srtop = ScrollReveal({
+  origin: 'top',
+  distance: '80px',
+  duration: 2000,
+  reset: false
+  });
+  srtop.reveal('main');
+</script>
+    <script>
+        const messageForm = document.getElementById('message-form');
+        const nameInput = document.getElementById('name');
+        const messageInput = document.getElementById('message');
+        const messageList = document.getElementById('message-list');
+
+        // Function to add a new message to the list in a separate container
+        function addMessage(name, message) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container');
+
+            const messageBox = document.createElement('div');
+            messageBox.innerHTML = `<strong>${name}:</strong> ${message}`;
+
+            messageContainer.appendChild(messageBox);
+            messageList.appendChild(messageContainer);
+            messageList.scrollTop = messageList.scrollHeight;
+        }
+
+        // Function to save a new message to the server using fetch
+        async function saveMessageToServer(name, message) {
+            try {
+                const response = await fetch('../php/save_message.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}`,
+                });
+                if (response.ok) {
+                    // Message saved successfully, so load and display all messages
+                    loadMessages();
+                }
+            } catch (error) {
+                console.error('Error saving message:', error);
+            }
+        }
+
+        // Function to load and display messages from the server using fetch
+        async function loadMessages() {
+            try {
+                const response = await fetch('../php/view_messages.php');
+                if (response.ok) {
+                    const messages = await response.text();
+                    // Clear the message list and display the loaded messages
+                    messageList.innerHTML = messages;
+                    // Scroll to the bottom of the message list
+                    messageList.scrollTop = messageList.scrollHeight;
+                }
+            } catch (error) {
+                console.error('Error loading messages:', error);
+            }
+        }
+
+        setInterval(loadMessages, 5000);
+
+        // Event listener for the form submission
+        messageForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = nameInput.value;
+            const message = messageInput.value;
+            if (name && message) {
+                await saveMessageToServer(name, message);
+                nameInput.value = '';
+                messageInput.value = '';
+            }
+        });
+
+        // Load and display messages when the page loads
+        loadMessages();
+        </script>
+</body>
+</html>
